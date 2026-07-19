@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0e1022;
-    --bg-2: #14172e;
-    --card: #191c37;
-    --card-edge: #262a4d;
-    --violet: #8b7bff;
-    --teal: #2fd3c9;
-    --gold: #4ADE80;
-    --text: #f1f0fb;
-    --text-dim: #9b9ac0;
-    --text-faint: #6b699a;
+    --bg: #f3f4f9;
+    --bg-2: #ffffff;
+    --card: #ffffff;
+    --card-edge: #e3e5f0;
+    --violet: #7c6fee;
+    --teal: #14b8ac;
+    --gold: #16A34A;
+    --text: #1c1d2e;
+    --text-dim: #5c5e75;
+    --text-faint: #9799ad;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{
@@ -26,10 +26,10 @@
   body{
     position: relative;
     background:
-      radial-gradient(circle at 15% 0%, rgba(139,123,255,0.22), transparent 45%),
-      radial-gradient(circle at 85% 10%, rgba(47,211,201,0.20), transparent 42%),
-      radial-gradient(circle at 50% 100%, rgba(139,123,255,0.14), transparent 50%),
-      linear-gradient(180deg, #0a0b1a 0%, #0e1022 45%, #0a0c1c 100%);
+      radial-gradient(circle at 15% 0%, rgba(124,111,238,0.14), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(20,184,172,0.14), transparent 42%),
+      radial-gradient(circle at 50% 100%, rgba(124,111,238,0.10), transparent 50%),
+      linear-gradient(180deg, #f7f8fc 0%, #f3f4f9 45%, #eef0f7 100%);
     color: var(--text);
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
@@ -41,8 +41,8 @@
     content: '';
     position: fixed; inset: 0;
     background-image:
-      linear-gradient(rgba(47,211,201,0.14) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(47,211,201,0.14) 1px, transparent 1px);
+      linear-gradient(rgba(20,184,172,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,184,172,0.10) 1px, transparent 1px);
     background-size: 42px 42px;
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 75%);
             mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 75%);
@@ -57,8 +57,8 @@
   body::after{
     content: '';
     position: fixed; inset: 0;
-    opacity: 0.25;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%238b7bff' stroke-opacity='0.10' stroke-width='1.4'%3E%3Cpath d='M20 40 H120 V90 H200 V40 H280'/%3E%3Cpath d='M0 150 H80 V200 H180 V150 H300'/%3E%3Cpath d='M40 0 V60 H100 V120'/%3E%3Cpath d='M260 90 V180 H220 V260'/%3E%3Ccircle cx='120' cy='90' r='4' fill='%232fd3c9' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='200' cy='40' r='4' fill='%238b7bff' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='80' cy='200' r='4' fill='%232fd3c9' fill-opacity='0.35' stroke='none'/%3E%3Ccircle cx='220' cy='260' r='4' fill='%238b7bff' fill-opacity='0.35' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%237c6fee' stroke-opacity='0.08' stroke-width='1.4'%3E%3Cpath d='M20 40 H120 V90 H200 V40 H280'/%3E%3Cpath d='M0 150 H80 V200 H180 V150 H300'/%3E%3Cpath d='M40 0 V60 H100 V120'/%3E%3Cpath d='M260 90 V180 H220 V260'/%3E%3Ccircle cx='120' cy='90' r='4' fill='%2314b8ac' fill-opacity='0.3' stroke='none'/%3E%3Ccircle cx='200' cy='40' r='4' fill='%237c6fee' fill-opacity='0.3' stroke='none'/%3E%3Ccircle cx='80' cy='200' r='4' fill='%2314b8ac' fill-opacity='0.3' stroke='none'/%3E%3Ccircle cx='220' cy='260' r='4' fill='%237c6fee' fill-opacity='0.3' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 300px 300px;
     pointer-events: none;
     z-index: 0;
@@ -106,6 +106,20 @@
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.4;} }
 
   /* category chips */
+  /* kotak pencarian */
+  .search-box{
+    display:flex; align-items:center; gap:10px;
+    background: var(--card); border: 1px solid var(--card-edge);
+    border-radius: 14px; padding: 12px 16px; margin-bottom: 16px;
+    color: var(--text-faint); transition: border-color .15s ease;
+  }
+  .search-box:focus-within{ border-color: var(--teal); color: var(--teal); }
+  .search-box input{
+    flex:1; background:none; border:none; outline:none;
+    color: var(--text); font-family:'Inter',sans-serif; font-size: 14px;
+  }
+  .search-box input::placeholder{ color: var(--text-faint); }
+
   .chips{
     display:flex; gap:8px; overflow-x:auto; padding-bottom: 6px; margin-bottom: 28px;
     scrollbar-width: none;
@@ -294,18 +308,18 @@
 <svg class="bg-scene" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a0b1a"/>
-      <stop offset="55%" stop-color="#0e1022"/>
-      <stop offset="100%" stop-color="#0a0c1c"/>
+      <stop offset="0%" stop-color="#eef1f9"/>
+      <stop offset="55%" stop-color="#f3f4f9"/>
+      <stop offset="100%" stop-color="#eef0f7"/>
     </linearGradient>
     <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2fd3c9" stop-opacity="0.55"/>
-      <stop offset="60%" stop-color="#8b7bff" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#8b7bff" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#14b8ac" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#7c6fee" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#7c6fee" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="bldgFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1b1e3d"/>
-      <stop offset="100%" stop-color="#12142a"/>
+      <stop offset="0%" stop-color="#dfe2ee"/>
+      <stop offset="100%" stop-color="#cdd1e2"/>
     </linearGradient>
   </defs>
 
@@ -313,19 +327,19 @@
 
   <!-- digital sun -->
   <circle cx="720" cy="330" r="230" fill="url(#sunGlow)"/>
-  <circle cx="720" cy="330" r="120" fill="none" stroke="#2fd3c9" stroke-opacity="0.55" stroke-width="2"/>
-  <circle cx="720" cy="330" r="120" fill="none" stroke="#2fd3c9" stroke-opacity="0.3" stroke-width="18" stroke-dasharray="2 14"/>
-  <line x1="600" y1="330" x2="840" y2="330" stroke="#2fd3c9" stroke-opacity="0.25" stroke-width="1.5"/>
-  <line x1="720" y1="210" x2="720" y2="450" stroke="#2fd3c9" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="720" cy="330" r="120" fill="none" stroke="#14b8ac" stroke-opacity="0.45" stroke-width="2"/>
+  <circle cx="720" cy="330" r="120" fill="none" stroke="#14b8ac" stroke-opacity="0.25" stroke-width="18" stroke-dasharray="2 14"/>
+  <line x1="600" y1="330" x2="840" y2="330" stroke="#14b8ac" stroke-opacity="0.2" stroke-width="1.5"/>
+  <line x1="720" y1="210" x2="720" y2="450" stroke="#14b8ac" stroke-opacity="0.2" stroke-width="1.5"/>
 
   <!-- orbit trails -->
-  <ellipse cx="720" cy="330" rx="330" ry="90" fill="none" stroke="#8b7bff" stroke-opacity="0.2" stroke-width="1.2"/>
-  <ellipse cx="720" cy="330" rx="420" ry="130" fill="none" stroke="#2fd3c9" stroke-opacity="0.14" stroke-width="1.2"/>
-  <circle cx="1140" cy="300" r="4" fill="#2fd3c9"/>
-  <circle cx="300" cy="380" r="3" fill="#8b7bff"/>
+  <ellipse cx="720" cy="330" rx="330" ry="90" fill="none" stroke="#7c6fee" stroke-opacity="0.18" stroke-width="1.2"/>
+  <ellipse cx="720" cy="330" rx="420" ry="130" fill="none" stroke="#14b8ac" stroke-opacity="0.14" stroke-width="1.2"/>
+  <circle cx="1140" cy="300" r="4" fill="#14b8ac"/>
+  <circle cx="300" cy="380" r="3" fill="#7c6fee"/>
 
   <!-- city skyline -->
-  <g fill="url(#bldgFill)" stroke="#2a2e58" stroke-width="1">
+  <g fill="url(#bldgFill)" stroke="#c2c6d9" stroke-width="1">
     <rect x="0" y="620" width="90" height="380"/>
     <rect x="95" y="560" width="70" height="440"/>
     <rect x="170" y="660" width="110" height="340"/>
@@ -363,7 +377,7 @@
   </g>
 
   <!-- garis data mengalir dari langit ke kota -->
-  <g stroke="#2fd3c9" stroke-opacity="0.18" stroke-width="1" fill="none">
+  <g stroke="#14b8ac" stroke-opacity="0.22" stroke-width="1" fill="none">
     <path d="M300 380 Q450 460 620 620"/>
     <path d="M1140 300 Q1000 420 880 560"/>
   </g>
@@ -379,6 +393,11 @@
     <a href="https://wa.me/6283839394011" title="WhatsApp" target="_blank">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2.01 6.476 2.01 12c0 1.987.581 3.837 1.583 5.396L2 22l4.735-1.562A9.94 9.94 0 0012.004 22C17.522 22 22 17.523 22 12S17.522 2 12.004 2zm0 18.03c-1.788 0-3.44-.53-4.83-1.437l-.346-.207-3.13 1.03 1.045-3.049-.226-.34A7.99 7.99 0 014.01 12c0-4.411 3.585-7.997 8-7.997 4.411 0 8 3.586 8 7.997 0 4.412-3.589 8.03-8.006 8.03z"/></svg>
     </a>
+  </div>
+
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInput" placeholder="Cari produk..." autocomplete="off">
   </div>
 
   <div class="chips" id="chips"></div>
@@ -607,12 +626,18 @@ function renderChips(){
   });
 }
 
+let searchTerm = '';
+
 function renderGrid(){
   gridEl.innerHTML = '';
-  const list = active === "Semua" ? products : products.filter(p => p.cat === active);
+  let list = active === "Semua" ? products : products.filter(p => p.cat === active);
+  if(searchTerm){
+    const q = searchTerm.toLowerCase();
+    list = list.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+  }
 
   if(list.length === 0){
-    gridEl.innerHTML = '<div class="empty">Belum ada produk di kategori ini. Cek lagi nanti ya!</div>';
+    gridEl.innerHTML = `<div class="empty">${searchTerm ? `Tidak ada produk yang cocok dengan "${searchTerm}".` : 'Belum ada produk di kategori ini. Cek lagi nanti ya!'}</div>`;
     return;
   }
 
@@ -651,6 +676,10 @@ function renderGrid(){
 renderChips();
 renderGrid();
 document.getElementById('avatarBox').innerHTML = `<img src="${logoFomo}" alt="Fomo Store">`;
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  searchTerm = e.target.value.trim();
+  renderGrid();
+});
 loadFromSheet(false);
 setInterval(() => loadFromSheet(true), POLL_INTERVAL_MS);
 
