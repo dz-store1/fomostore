@@ -734,7 +734,7 @@ function renderGrid(){
           <div class="price-old">${formatRp(oldPrice)}</div>
           <div class="price">${formatRp(p.price)}</div>
         </div>
-        <a class="buy" href="https://wa.me/6283839394011?text=${encodeURIComponent('Halo, saya mau order: ' + p.name)}" target="_blank">Order →</a>
+        <a class="buy" href="https://wa.me/6283839394011?text=${encodeURIComponent('Halo, saya mau order: ' + p.name + ' seharga ' + formatRp(p.price))}" target="_blank">Order →</a>
       </div>
     `;
     card.querySelector('.t-detail').onclick = (e) => { e.stopPropagation(); openDetail(p); };
@@ -770,7 +770,7 @@ function openDetail(p){
     ${p.desc ? `<p class="d-desc">${p.desc}</p>` : ''}
     ${benefitHtml}
     ${ketentuanHtml}
-    <a class="buy" style="display:inline-block; margin-top:16px;" href="https://wa.me/6283839394011?text=${encodeURIComponent('Halo, saya mau order: ' + p.name)}" target="_blank">Order →</a>
+    <a class="buy" style="display:inline-block; margin-top:16px;" href="https://wa.me/6283839394011?text=${encodeURIComponent('Halo, saya mau order: ' + p.name + ' seharga ' + formatRp(p.price))}" target="_blank">Order →</a>
   `;
   modal.classList.add('open');
 }
